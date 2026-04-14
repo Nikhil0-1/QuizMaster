@@ -1,6 +1,6 @@
 // src/App.jsx — Main router
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { onAuthChanged } from './firebase/authService';
 import useAdminStore from './store/useAdminStore';
@@ -48,7 +48,7 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter basename="/sacq">
+    <HashRouter>
       <Toaster
         position="top-right"
         toastOptions={{
@@ -66,6 +66,6 @@ export default function App() {
           <Route path="*"          element={<Navigate to="/login" replace />} />
         </Routes>
       </Suspense>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
